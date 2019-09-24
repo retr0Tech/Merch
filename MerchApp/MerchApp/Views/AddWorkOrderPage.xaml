@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xfx="clr-namespace:Xfx;assembly=Xfx.Controls"
+             mc:Ignorable="d"
+             x:Class="MerchApp.Views.AddWorkOrderPage"
+             Title="Add Work Order">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Text="Add" Priority="0" Command="{Binding SaveWorkOrderCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout BackgroundColor="Gray">
+                    <Entry Placeholder="Work Order Tittle" Text="{Binding WorkOrder.Tittle}"></Entry>
+                    <Entry Placeholder="Work Order Description" Text="{Binding WorkOrder.Description}"></Entry>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center">
+                    <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="8*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Add image" Grid.Row="0" Grid.Column="1"/>
+                        <ImageButton Source="ic_wrench.png" Grid.Row="0" Grid.Column="2"
+                             Command="{Binding OpenCamera}"></ImageButton>
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Assing Work Order"></Label>
+                    <Picker x:Name="Workers" ItemsSource="{Binding WokerList}"></Picker>
+                    <Entry Placeholder="Assing to a Location" Text="{Binding WorkOrder.Location}"></Entry>
+                    <Label Text="Assign to Asset"></Label>
+                    <Label Text="Assiing Reporting Scheduele"></Label>
+                    <DatePicker MinimumDate="01/01/2018"
+                                MaximumDate="12/31/2030"
+                                Date="01/1/2019"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

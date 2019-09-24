@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MerchApp.Views.HomeMasterDetailPage"
+                  BackgroundColor="Red">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Work Orders">
+            <ContentPage.Content>
+                <StackLayout>
+                    <Label Text="Master page Menu"></Label>
+                    <Button Text="My Profile" BackgroundColor="Yellow" ></Button>
+                    <Button Text="My Orders" BackgroundColor="Yellow" ></Button>
+                    <Button Text="Settings" BackgroundColor="Yellow" ></Button>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage>
+            <ContentPage.Content>
+                <StackLayout>
+                    <StackLayout>
+                        <SearchBar x:Name="WorkOrdersSearchBar"
+                           Placeholder="Search work orders"
+                           BackgroundColor="White"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <ListView ItemsSource="{Binding WorkOrderList}"
+                  x:Name="WorkOrderList"
+                  SelectedItem="{Binding WorkOrderListSelected}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ViewCell.ContextActions>
+                                            <MenuItem Text="Delete"
+                                       Command="{Binding Path=BindingContext.DeleteElementOrder,
+                                       Source={x:Reference WorkOrderList}}"
+                                       CommandParameter="{Binding .}"
+                                       IsDestructive="True"/>
+                                        </ViewCell.ContextActions>
+                                        <StackLayout BackgroundColor="White">
+                                            <Label Text="{Binding WorkOrderDetails}"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <StackLayout>
+                        <Button Text="Add Work Order"
+                        Command="{Binding AddWorkOrderCommand}"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
