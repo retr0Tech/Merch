@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -106,7 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MerchApp\MerchApp.csproj">
-      <Project>{B6ABBEA0-DD18-4B78-BE13-8501BFD661FE}</Project>
+      <Project>{5E0A5EDA-EFFC-4C28-9DB0-C723589FAC71}</Project>
       <Name>MerchApp</Name>
     </ProjectReference>
   </ItemGroup>

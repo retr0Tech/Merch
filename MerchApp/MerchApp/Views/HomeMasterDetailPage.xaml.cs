@@ -14,7 +14,7 @@ namespace MerchApp.Views
     {
         public HomeMasterDetailPage()
         {
-            //InitializeComponent();
+           InitializeComponent();
         }
     }
 }
