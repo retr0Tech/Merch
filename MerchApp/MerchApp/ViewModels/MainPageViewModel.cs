@@ -13,20 +13,9 @@ namespace MerchApp.ViewModels
 {
     public class MainPageViewModel
     {
-        public DelegateCommand AddWorkOrderCommand { get; set; }
         protected INavigationService _navigationService;
         public MainPageViewModel(INavigationService navigationService)
         {
-            _navigationService = navigationService;
-            AddWorkOrderCommand = new DelegateCommand(async () =>
-            {
-                await AddWorkOrder();
-            });
-
-            async Task AddWorkOrder()
-            {
-                await _navigationService.NavigateAsync(new Uri("NavigationPage/AddWorkOrderPage", UriKind.Relative));
-            }
         }
     }
 }

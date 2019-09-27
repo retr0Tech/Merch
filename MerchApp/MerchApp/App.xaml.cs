@@ -16,7 +16,7 @@ namespace MerchApp
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync(new Uri("/LoginPage", UriKind.Absolute));
+            NavigationService.NavigateAsync(new Uri("/NavigationPage/LoginPage", UriKind.Absolute));
 
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -28,6 +28,7 @@ namespace MerchApp
             containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
             containerRegistry.RegisterForNavigation<PasswordResetPage, PasswordResetPageViewModel>();
             containerRegistry.RegisterForNavigation<OrderPage, OrderPageViewModel>();
+            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
         }
     }
 }

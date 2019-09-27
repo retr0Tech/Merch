@@ -32,7 +32,7 @@ namespace MerchApp.ViewModels
 
             async Task Login()
             {
-                await _navigationService.NavigateAsync(new Uri("NavigationPage/HomeMasterDetailPage", UriKind.Absolute));
+                await _navigationService.NavigateAsync(new Uri("/HomeMasterDetailPage/NavigationPage/HomePage", UriKind.Absolute));
             }
 
             RegisterCommand = new DelegateCommand(async () =>
@@ -42,7 +42,7 @@ namespace MerchApp.ViewModels
 
             async Task Register()
             {
-                await _navigationService.NavigateAsync(new Uri("NavigationPage/RegisterPage", UriKind.Relative));
+                await _navigationService.NavigateAsync(new Uri("RegisterPage", UriKind.Relative));
             }
 
             ForgotPasswordCommand = new DelegateCommand(async () =>
@@ -52,7 +52,7 @@ namespace MerchApp.ViewModels
 
             async Task ForgotPassword()
             {
-                await _navigationService.NavigateAsync(new Uri("NavigationPage/PasswordResetPage", UriKind.Relative));
+                await _navigationService.NavigateAsync(new Uri("PasswordResetPage", UriKind.Relative));
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;

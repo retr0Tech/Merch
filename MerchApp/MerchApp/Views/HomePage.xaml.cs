@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace MerchApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomeMasterDetailPage : MasterDetailPage
+    public partial class HomePage : ContentPage
     {
-        public HomeMasterDetailPage()
+        public HomePage()
         {
             InitializeComponent();
         }
