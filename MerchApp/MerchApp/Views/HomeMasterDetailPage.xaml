@@ -11,10 +11,19 @@
         <ContentPage Title="Menu">
             <ContentPage.Content>
                 <StackLayout>
-                    <Label Text="Master page Menu"></Label>
-                    <Button Text="My Profile" BackgroundColor="Yellow" ></Button>
-                    <Button Text="My Orders" BackgroundColor="Yellow" ></Button>
-                    <Button Text="Settings" BackgroundColor="Yellow" ></Button>
+                    <Grid x:Name="MasterDetailGrid" RowSpacing="0" ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Juan Perez &#10; JuanPerez@gmail.com" Grid.Row="0" Grid.Column="2"/>
+                        <Image Source="Acc_Icon.png" Grid.Row="0" Grid.Column="1"></Image>
+                        <Button Text="My Profile" Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent"/>
+                        <Image Source="ic_wrench.png" Grid.Row="1" Grid.Column="1"></Image>
+                        <Button Text="My Orders" Grid.Row="2" Grid.Column="2" BackgroundColor="Transparent"/>
+                        <Image Source="ic_wrench.png" Grid.Row="2" Grid.Column="1"></Image>
+                        <Button Text="Settings" Grid.Row="3" Grid.Column="2" BackgroundColor="Transparent"/>
+                        <Image Source="ic_wrench.png" Grid.Row="3" Grid.Column="1"></Image>
+                    </Grid>
                 </StackLayout>
             </ContentPage.Content>
         </ContentPage>

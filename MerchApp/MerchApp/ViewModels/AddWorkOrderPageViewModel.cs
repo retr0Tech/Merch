@@ -23,17 +23,24 @@ namespace MerchApp.ViewModels
                 await SaveWorkOrder();
             });
 
-            //Alertar al usuario qeu si le da al boton de atras la orden no se salva
 
             async Task SaveWorkOrder()
             {
                 await _navigationService.NavigateAsync(new Uri("MainMasterDetailPage/NavigationPage/OrderPage", UriKind.Relative));
             }
 
-            //void ShowAlert()
+            //Display alert if user press back button
+            //Alertar al usuario qeu si le da al boton de atras la orden no se salva
+            //protected override bool OnBackButtonPressed()
             //{
-            //    _pageDialog.DisplayActionSheetAsync("Alert", "Work order wont be saved", "Ok", "Cancel");
+            //    Device.BeginInvokeOnMainThread(async () => {
+            //        var result = await this.DisplayAlert("Alert!", "Do you really want to exit?", "Yes", "No");
+            //        if (result) await this.Navigation.PopAsync(); // or anything else
+            //    });
+
+            //    return true;
             //}
+
         }
     }
 }
