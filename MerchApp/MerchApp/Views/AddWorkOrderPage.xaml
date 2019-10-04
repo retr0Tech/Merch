@@ -12,7 +12,8 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
+            <StackLayout
+                Padding="20" >
                 <StackLayout BackgroundColor="Gray">
                     <Entry Placeholder="Work Order Tittle" Text="{Binding WorkOrder.Tittle}"></Entry>
                     <Entry Placeholder="Work Order Description" Text="{Binding WorkOrder.Description}"></Entry>
