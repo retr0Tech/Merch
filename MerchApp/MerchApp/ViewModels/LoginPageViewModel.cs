@@ -20,12 +20,9 @@ namespace MerchApp.ViewModels
         public string DisplayError { get; set; }
         protected INavigationService _navigationService;
 
-        public LoginPageViewModel(INavigationService navigationService)
+        public LoginPageViewModel()
         {
-            //var x = User.Email;
-            //var y = User.Password;
-           _navigationService = navigationService;
-           LoginCommand = new DelegateCommand(async () =>
+            LoginCommand = new DelegateCommand(async () =>
             {
                 await Login();
             });
@@ -54,6 +51,42 @@ namespace MerchApp.ViewModels
             {
                 await _navigationService.NavigateAsync(new Uri("NavigationPage/PasswordResetPage", UriKind.Relative));
             }
+        }
+        public LoginPageViewModel(INavigationService navigationService)
+        {
+            //var x = User.Email;
+            //var y = User.Password;
+           _navigationService = navigationService;
+            LoginCommand = new DelegateCommand(async () =>
+            {
+                await Login();
+            });
+
+            async Task Login()
+            {
+                await _navigationService.NavigateAsync(new Uri("NavigationPage/HomeMasterDetailPage", UriKind.Absolute));
+            }
+
+            RegisterCommand = new DelegateCommand(async () =>
+            {
+                await Register();
+            });
+
+            async Task Register()
+            {
+                await _navigationService.NavigateAsync(new Uri("NavigationPage/RegisterPage", UriKind.Relative));
+            }
+
+            ForgotPasswordCommand = new DelegateCommand(async () =>
+            {
+                await ForgotPassword();
+            });
+
+            async Task ForgotPassword()
+            {
+                await _navigationService.NavigateAsync(new Uri("NavigationPage/PasswordResetPage", UriKind.Relative));
+            }
+
         }
         public event PropertyChangedEventHandler PropertyChanged;
     }

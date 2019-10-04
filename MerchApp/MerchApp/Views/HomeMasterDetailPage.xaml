@@ -19,7 +19,7 @@
         </ContentPage>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <ContentPage>
+        <ContentPage>s
             <ContentPage.Content>
                 <StackLayout>
                     <StackLayout>

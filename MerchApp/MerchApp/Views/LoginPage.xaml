@@ -9,25 +9,45 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="ic_wrench.png"
-                       HeightRequest="150"/>
+            <StackLayout HorizontalOptions="Center"
+                         Padding="20">
+                <Image Source="bateria.png"
+                       HeightRequest="150"
+                       Margin="0,0,0,40"/>
                 <Entry Placeholder="Email"
                        Keyboard="Email" WidthRequest="300"></Entry>
                 <Entry Placeholder="Password"
                        IsPassword ="True"
                        WidthRequest="300"></Entry>
                 <Button Text="Login"
-                        Command="{Binding LoginCommand}"></Button>
+                        Command="{Binding LoginCommand}"
+                        Margin="50, 0"></Button>
                 <!--<Label Text="{Binding DisplayError, Mode=TwoWay}"
                        HorizontalOptions="CenterAndExpand"
                        TextColor="Red"/>-->
                 <!--Register-->
-                <Button Text="Register"
-                            Command="{Binding RegisterCommand}"/>
+                <Label Text="Register"
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="Blue"
+                       TextDecorations="Underline"
+                       VerticalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding RegisterCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                            
                 <!--Forgot password-->
-                <Button Text="Forgot Password"
-                            Command="{Binding ForgotPasswordCommand}"/>
+                <Label Text="Forgot Password"
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="Blue"
+                       TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding ForgotPasswordCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                            
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
