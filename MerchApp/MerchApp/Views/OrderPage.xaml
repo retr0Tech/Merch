@@ -4,12 +4,60 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MerchApp.Views.OrderPage">
+             x:Class="MerchApp.Views.OrderPage"
+             Title="Order">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Text="Edit" Priority="0" Command="{Binding EditWorkOrderCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout>
+                    <Image>
+                        <Image.Source>
+                            <FileImageSource File="{Binding WorkOrderImage}"></FileImageSource>
+                        </Image.Source>
+                    </Image>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Medium" FontSize="Small"></Label>
+                    <Label Text="Reparar Aire acondicionado F150" FontSize="Large"></Label>
+                    <Label Text="Reemplazar condensador"></Label>
+                    <Grid x:Name="WorkOrderGrid" RowSpacing="2" ColumnSpacing="1" HorizontalOptions="CenterAndExpand">
+                        <Label Text="Open" Grid.Row="0" Grid.Column="1"/>
+                        <Image Source="Lock.png" Grid.Row="1" Grid.Column="1"></Image>
+                        <Label Text="On Hold" Grid.Row="0" Grid.Column="2"/>
+                        <Image Source="Pause.png" Grid.Row="1" Grid.Column="2"></Image>
+                        <Label Text="On progress" Grid.Row="0" Grid.Column="3"/>
+                        <Image Source="Sync.png" Grid.Row="1" Grid.Column="3"></Image>
+                        <Label Text="Completed" Grid.Row="0" Grid.Column="4"/>
+                        <Image Source="Check.png" Grid.Row="1" Grid.Column="4"></Image>
+                    </Grid>
+                    <StackLayout>
+                        <Grid x:Name="WorkOrderDetailGrid" RowSpacing="1" ColumnSpacing="1">
+                            <Label Text="Locaton" Grid.Row="0" Grid.Column="1"/>
+                            <Label Text="Las Americas" Grid.Row="0" Grid.Column="2"/>
+                            <Label Text="Ticket #" Grid.Row="1" Grid.Column="1"/>
+                            <Label Text="111111" Grid.Row="1" Grid.Column="2"/>
+                            <Label Text="Created on" Grid.Row="2" Grid.Column="1"/>
+                            <Label Text="9/24/2019" Grid.Row="2" Grid.Column="2"/>
+                            <Label Text="Assign to" Grid.Row="3" Grid.Column="1"/>
+                            <Label Text="Juan Perez" Grid.Row="3" Grid.Column="2"/>
+                            <Label Text="Category" Grid.Row="4" Grid.Column="1"/>
+                            <Label Text="Repair" Grid.Row="4" Grid.Column="2"/>
+                            <Label Text="Created by" Grid.Row="5" Grid.Column="1"/>
+                            <Label Text="Juan Lopez" Grid.Row="5" Grid.Column="2"/>
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

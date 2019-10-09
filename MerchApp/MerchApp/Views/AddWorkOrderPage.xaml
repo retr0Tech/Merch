@@ -13,28 +13,36 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <StackLayout BackgroundColor="Gray">
-                    <Entry Placeholder="Work Order Tittle" Text="{Binding WorkOrder.Tittle}"></Entry>
+                <StackLayout>
+                    <Entry Placeholder="Work Order Tittle*" Text="{Binding WorkOrder.Tittle}"></Entry>
                     <Entry Placeholder="Work Order Description" Text="{Binding WorkOrder.Description}"></Entry>
+                    <Label Text="Priority*"></Label>
+                    <Picker x:Name="Priority" ItemsSource="{Binding PriotiryMode}">
+                        <Picker.Items>
+                            <x:String>Low</x:String>
+                            <x:String>Medium</x:String>
+                            <x:String>Normal</x:String>
+                            <x:String>High</x:String>
+                        </Picker.Items>
+                    </Picker>
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center">
                     <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
                             <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="8*" />
                         </Grid.ColumnDefinitions>
 
                         <Label Text="Add image" Grid.Row="0" Grid.Column="1"/>
-                        <ImageButton Source="ic_wrench.png" Grid.Row="0" Grid.Column="2"
+                        <ImageButton Source="Camara.png" Grid.Row="0" Grid.Column="2"
                              Command="{Binding OpenCamera}"></ImageButton>
                     </Grid>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="Assing Work Order"></Label>
-                    <Picker x:Name="Workers" ItemsSource="{Binding WokerList}"></Picker>
-                    <Entry Placeholder="Assing to a Location" Text="{Binding WorkOrder.Location}"></Entry>
-                    <Label Text="Assign to Asset"></Label>
-                    <Label Text="Assiing Reporting Scheduele"></Label>
+                    <Label Text="Assing Work Order*"></Label>
+                    <Picker x:Name="Workers" ItemsSource="{Binding WorkerList}"></Picker>
+                    <Entry Placeholder="Assing to a Location*" Text="{Binding WorkOrder.Location}"></Entry>
+                    <Label Text="Assiing Reporting Scheduele*"></Label>
                     <DatePicker MinimumDate="01/01/2018"
                                 MaximumDate="12/31/2030"
                                 Date="01/1/2019"/>

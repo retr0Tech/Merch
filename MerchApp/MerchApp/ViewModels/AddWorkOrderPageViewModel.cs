@@ -20,13 +20,13 @@ namespace MerchApp.ViewModels
             _navigationService = navigationService;
             SaveWorkOrderCommand = new DelegateCommand(async () =>
             {
+
                 await SaveWorkOrder();
             });
 
-
             async Task SaveWorkOrder()
             {
-                await _navigationService.NavigateAsync(new Uri("MainMasterDetailPage/NavigationPage/OrderPage", UriKind.Relative));
+                await _navigationService.NavigateAsync(new Uri("/HomeMasterDetailPage/NavigationPage/HomePage/OrderPage", UriKind.Absolute));
             }
 
             //Display alert if user press back button

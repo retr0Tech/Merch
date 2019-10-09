@@ -18,11 +18,11 @@
                         <Label Text="Juan Perez &#10; JuanPerez@gmail.com" Grid.Row="0" Grid.Column="2"/>
                         <Image Source="Acc_Icon.png" Grid.Row="0" Grid.Column="1"></Image>
                         <Button Text="My Profile" Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent"/>
-                        <Image Source="ic_wrench.png" Grid.Row="1" Grid.Column="1"></Image>
+                        <Image Source="Person_Icon.png" Grid.Row="1" Grid.Column="1"></Image>
                         <Button Text="My Orders" Grid.Row="2" Grid.Column="2" BackgroundColor="Transparent"/>
-                        <Image Source="ic_wrench.png" Grid.Row="2" Grid.Column="1"></Image>
+                        <Image Source="MyOrders.png" Grid.Row="2" Grid.Column="1"></Image>
                         <Button Text="Settings" Grid.Row="3" Grid.Column="2" BackgroundColor="Transparent"/>
-                        <Image Source="ic_wrench.png" Grid.Row="3" Grid.Column="1"></Image>
+                        <Image Source="Settings.png" Grid.Row="3" Grid.Column="1"></Image>
                     </Grid>
                 </StackLayout>
             </ContentPage.Content>
