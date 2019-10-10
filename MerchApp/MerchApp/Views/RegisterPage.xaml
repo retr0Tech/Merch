@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:MerchApp.Controls"
              mc:Ignorable="d"
              x:Class="MerchApp.Views.RegisterPage">
     <ContentPage.Content>
@@ -10,18 +11,18 @@
             <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                 <Image Source="ic_wrench.png"
                        HeightRequest="100"/>
-                <Entry Placeholder="First Name"
-                       WidthRequest="300"></Entry>
-                <Entry Placeholder="Last Name"
-                       WidthRequest="300"></Entry>
-                <Entry Placeholder="Email"
-                       Keyboard="Email" WidthRequest="300"></Entry>
-                <Entry Placeholder="Password"
+                <controls:ExtendedEntry Placeholder="First Name"
+                       WidthRequest="300"></controls:ExtendedEntry>
+                <controls:ExtendedEntry Placeholder="Last Name"
+                       WidthRequest="300"></controls:ExtendedEntry>
+                <controls:ExtendedEntry Placeholder="Email"
+                       Keyboard="Email" WidthRequest="300"></controls:ExtendedEntry>
+                <controls:ExtendedEntry Placeholder="Password"
                        IsPassword ="True"
-                       WidthRequest="300"></Entry>
-                <Entry Placeholder="Confirm Password"
+                       WidthRequest="300"></controls:ExtendedEntry>
+                <controls:ExtendedEntry Placeholder="Confirm Password"
                        IsPassword ="True"
-                       WidthRequest="300"></Entry>
+                       WidthRequest="300"></controls:ExtendedEntry>
                 <Button Text="Register"
                         Command="{Binding RegisterCommand}"></Button>
                 <!--<Label Text="{Binding DisplayError, Mode=TwoWay}"

@@ -9,55 +9,88 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="MenuItem1" Order="Primary" Text="Edit" Priority="0" Command="{Binding EditWorkOrderCommand}"/>
     </ContentPage.ToolbarItems>
+
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center"></Setter>
-            </Style>
-        </ResourceDictionary>
+        <!--Estilos de la pagina-->
+        <Style TargetType="ContentPage" ApplyToDerivedTypes="true">
+            <Setter Property="BackgroundImageSource" Value="{Binding ImageOrder}"></Setter>
+        </Style>
+
+        <Style TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="BorderColor" Value="Blue" />
+            <Setter Property="Margin" Value="20" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+
+        <Style TargetType="Label">
+            <!--<Setter Property="Margin" Value="0, 4"/>-->
+            <Setter Property="FontSize" Value="Small" />
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+
+        <Style x:Key="headerLabel" TargetType="Label">
+            <Setter Property="Margin" Value="0, 8" />
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="Font" Value="Bold" />
+        </Style>
     </ContentPage.Resources>
-    <ContentPage.Content>
+    <StackLayout>
         <ScrollView>
-            <StackLayout>
-                <StackLayout>
-                    <Image>
-                        <Image.Source>
-                            <FileImageSource File="{Binding WorkOrderImage}"></FileImageSource>
-                        </Image.Source>
-                    </Image>
-                </StackLayout>
-                <StackLayout>
-                    <Label Text="Medium" FontSize="Small"></Label>
-                    <Label Text="Reparar Aire acondicionado F150" FontSize="Large"></Label>
-                    <Label Text="Reemplazar condensador"></Label>
-                    <Grid x:Name="WorkOrderGrid" RowSpacing="2" ColumnSpacing="1" HorizontalOptions="CenterAndExpand">
-                        <Label Text="Open" Grid.Row="0" Grid.Column="1"/>
-                        <Image Source="Lock.png" Grid.Row="1" Grid.Column="1"></Image>
-                        <Label Text="On Hold" Grid.Row="0" Grid.Column="2"/>
-                        <Image Source="Pause.png" Grid.Row="1" Grid.Column="2"></Image>
-                        <Label Text="On progress" Grid.Row="0" Grid.Column="3"/>
-                        <Image Source="Sync.png" Grid.Row="1" Grid.Column="3"></Image>
-                        <Label Text="Completed" Grid.Row="0" Grid.Column="4"/>
-                        <Image Source="Check.png" Grid.Row="1" Grid.Column="4"></Image>
-                    </Grid>
+            <StackLayout Padding="0,250,0,0">
+                <Frame WidthRequest="900"
+                   HeightRequest="450">
                     <StackLayout>
-                        <Grid x:Name="WorkOrderDetailGrid" RowSpacing="1" ColumnSpacing="1">
-                            <Label Text="Locaton" Grid.Row="0" Grid.Column="1"/>
-                            <Label Text="Las Americas" Grid.Row="0" Grid.Column="2"/>
-                            <Label Text="Ticket #" Grid.Row="1" Grid.Column="1"/>
-                            <Label Text="111111" Grid.Row="1" Grid.Column="2"/>
-                            <Label Text="Created on" Grid.Row="2" Grid.Column="1"/>
-                            <Label Text="9/24/2019" Grid.Row="2" Grid.Column="2"/>
-                            <Label Text="Assign to" Grid.Row="3" Grid.Column="1"/>
-                            <Label Text="Juan Perez" Grid.Row="3" Grid.Column="2"/>
-                            <Label Text="Category" Grid.Row="4" Grid.Column="1"/>
-                            <Label Text="Repair" Grid.Row="4" Grid.Column="2"/>
-                            <Label Text="Created by" Grid.Row="5" Grid.Column="1"/>
-                            <Label Text="Juan Lopez" Grid.Row="5" Grid.Column="2"/>
-                        </Grid>
+                        <Label Text="Medium" FontSize="Small"></Label>
+                        <Label Text="Reparar Aire acondicionado F150" FontSize="Large" Style="{StaticResource headerLabel}"></Label>
+                        <Label Text="Reemplazar condensador"></Label>
+                        <StackLayout Margin="0,20,100,0">
+                            <Grid x:Name="WorkOrderGrid">
+                                <!--<Grid.RowDefinitions>
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="1" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="1" />
+                                </Grid.ColumnDefinitions>-->
+
+                                <Label Text="Open" Grid.Row="0" Grid.Column="1"/>
+                                <Image Source="Lock.png" Grid.Row="1" Grid.Column="1"></Image>
+                                <Label Text="On Hold" Grid.Row="0" Grid.Column="2"/>
+                                <Image Source="Pause.png" Grid.Row="1" Grid.Column="2"></Image>
+                                <Label Text="On progress" Grid.Row="0" Grid.Column="3"/>
+                                <Image Source="Sync.png" Grid.Row="1" Grid.Column="3"></Image>
+                                <Label Text="Completed" Grid.Row="0" Grid.Column="4"/>
+                                <Image Source="Check.png" Grid.Row="1" Grid.Column="4"></Image>
+                            </Grid>
+                        </StackLayout>
+                        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="3" Color="Black"/>
+                        <!--Work Order details-->
+                        <StackLayout Margin="0,0,100,0">
+                            <Grid x:Name="WorkOrderDetailGrid" RowSpacing="2" ColumnSpacing="2">
+                                <Label Text="Locaton Address " Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="{Binding WorkOrder.Location}" Grid.Row="0" Grid.Column="2"/>
+                                <Label Text="Ticket #" Grid.Row="1" Grid.Column="1"/>
+                                <Label Text="{Binding WorkOrder.Id}" Grid.Row="1" Grid.Column="2"/>
+                                <Label Text="Created on" Grid.Row="2" Grid.Column="1"/>
+                                <Label Text="{Binding WorkOrder.Date}" Grid.Row="2" Grid.Column="2"/>
+                                <Label Text="Assign to" Grid.Row="3" Grid.Column="1"/>
+                                <Label Text="{Binding WorkOrder.Worker}" Grid.Row="3" Grid.Column="2"/>
+                                <Label Text="Category" Grid.Row="4" Grid.Column="1"/>
+                                <Label Text="{Binding WorkOrder.Category}" Grid.Row="4" Grid.Column="2"/>
+                                <Label Text="Created by" Grid.Row="5" Grid.Column="1"/>
+                                <Label Text="{Binding WorkOrder.WorkOrderOwner}" Grid.Row="5" Grid.Column="2"/>
+                            </Grid>
+                        </StackLayout>
                     </StackLayout>
-                </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
-    </ContentPage.Content>
+    </StackLayout>
 </ContentPage>

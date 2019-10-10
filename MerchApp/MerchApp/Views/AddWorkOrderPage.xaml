@@ -4,9 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:xfx="clr-namespace:Xfx;assembly=Xfx.Controls"
+             xmlns:controls="clr-namespace:MerchApp.Controls"
              mc:Ignorable="d"
              x:Class="MerchApp.Views.AddWorkOrderPage"
-             Title="Add Work Order">
+             Title="Add Work Order"
+             BackgroundColor="White">
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="MenuItem1" Order="Primary" Text="Add" Priority="0" Command="{Binding SaveWorkOrderCommand}"/>
     </ContentPage.ToolbarItems>
@@ -14,8 +16,8 @@
         <ScrollView>
             <StackLayout>
                 <StackLayout>
-                    <Entry Placeholder="Work Order Tittle*" Text="{Binding WorkOrder.Tittle}"></Entry>
-                    <Entry Placeholder="Work Order Description" Text="{Binding WorkOrder.Description}"></Entry>
+                    <controls:ExtendedEntry Placeholder="Work Order Tittle*" Text="{Binding WorkOrder.Tittle}"></controls:ExtendedEntry>
+                    <controls:ExtendedEntry Placeholder="Work Order Description" Text="{Binding WorkOrder.Description}"></controls:ExtendedEntry>
                     <Label Text="Priority*"></Label>
                     <Picker x:Name="Priority" ItemsSource="{Binding PriotiryMode}">
                         <Picker.Items>
@@ -41,7 +43,7 @@
                 <StackLayout>
                     <Label Text="Assing Work Order*"></Label>
                     <Picker x:Name="Workers" ItemsSource="{Binding WorkerList}"></Picker>
-                    <Entry Placeholder="Assing to a Location*" Text="{Binding WorkOrder.Location}"></Entry>
+                    <controls:ExtendedEntry Placeholder="Assing to a Location*" Text="{Binding WorkOrder.Location}"></controls:ExtendedEntry>
                     <Label Text="Assiing Reporting Scheduele*"></Label>
                     <DatePicker MinimumDate="01/01/2018"
                                 MaximumDate="12/31/2030"
