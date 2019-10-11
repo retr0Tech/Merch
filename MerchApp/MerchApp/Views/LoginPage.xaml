@@ -14,19 +14,30 @@
             <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                 <Image Source="ic_wrench.png"
                        HeightRequest="150"/>
-                <controls:ExtendedEntry  Placeholder="Email"
-                       Keyboard="Email" WidthRequest="300"></controls:ExtendedEntry>
-                <controls:ExtendedEntry Placeholder="Password"
+                <controls:ExtendedEntry
+                    Text="{Binding email}"
+                    Placeholder="Email"
+                    Keyboard="Email"
+                    WidthRequest="300">
 
+                </controls:ExtendedEntry>
+
+                <controls:ExtendedEntry Placeholder="Password"
+                        Text="{Binding Password}"
                        IsPassword ="True"
-                       WidthRequest="300"></controls:ExtendedEntry>
+                       WidthRequest="300">
+                </controls:ExtendedEntry>
+
                 <Button Text="Login"
                         Command="{Binding LoginCommand}"
-                        Margin="50, 0"></Button>
-                <!--<Label Text="{Binding DisplayError, Mode=TwoWay}"
-                       HorizontalOptions="CenterAndExpand"
-                       TextColor="Red"/>-->
-                <!--Register-->
+                        Margin="50, 0">
+                </Button>
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding Result, Mode=TwoWay}"
+                    TextColor="red">
+
+                </Label>
                 <Label Text="Register"
                        HorizontalOptions="CenterAndExpand"
                        TextColor="Blue"

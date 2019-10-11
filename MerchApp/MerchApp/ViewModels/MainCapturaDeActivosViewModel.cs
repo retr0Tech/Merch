@@ -19,7 +19,7 @@ namespace MerchApp.ViewModels
          * Centro de Costo 3
          * Oficina 4
          * Description 5
-         * Marca/Modelo 6S
+         * Marca/Modelo 6
          * Empleado 7
          */
         int ListaActual = 0;

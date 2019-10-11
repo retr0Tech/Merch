@@ -8,6 +8,7 @@ using MerchApp.Views;
 using Prism.Commands;
 using Prism.Navigation;
 using Xamarin.Forms;
+using System.Threading;
 
 namespace MerchApp.ViewModels
 {
@@ -16,42 +17,15 @@ namespace MerchApp.ViewModels
         public DelegateCommand LoginCommand { get; set; }
         public DelegateCommand RegisterCommand { get; set; }
         public DelegateCommand ForgotPasswordCommand { get; set; }
+        public string email { get; set; }
+        public string Password { get; set; }
+        public string Result { get; set; }
+
 
         public string DisplayError { get; set; }
         protected INavigationService _navigationService;
 
-        public LoginPageViewModel()
-        {
-            LoginCommand = new DelegateCommand(async () =>
-            {
-                await Login();
-            });
-
-            async Task Login()
-            {
-                await _navigationService.NavigateAsync(new Uri("NavigationPage/HomeMasterDetailPage", UriKind.Absolute));
-            }
-
-            RegisterCommand = new DelegateCommand(async () =>
-            {
-                await Register();
-            });
-
-            async Task Register()
-            {
-                await _navigationService.NavigateAsync(new Uri("NavigationPage/RegisterPage", UriKind.Relative));
-            }
-
-            ForgotPasswordCommand = new DelegateCommand(async () =>
-            {
-                await ForgotPassword();
-            });
-
-            async Task ForgotPassword()
-            {
-                await _navigationService.NavigateAsync(new Uri("NavigationPage/PasswordResetPage", UriKind.Relative));
-            }
-        }
+        
         public LoginPageViewModel(INavigationService navigationService)
         {
             //var x = User.Email;
@@ -59,7 +33,17 @@ namespace MerchApp.ViewModels
            _navigationService = navigationService;
             LoginCommand = new DelegateCommand(async () =>
             {
-                await Login();
+                if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(Password))
+                {
+                    Result = "Debe llenar todos los campos";
+                    Thread.Sleep(2000);
+                    Result = string.Empty;
+                }
+                else
+                {
+                    await Login();
+                }
+                
             });
 
             async Task Login()
