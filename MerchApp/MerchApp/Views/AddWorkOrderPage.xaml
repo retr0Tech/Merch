@@ -14,7 +14,9 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
+
+            <StackLayout
+                Padding="20">
                 <StackLayout>
                     <controls:ExtendedEntry Placeholder="Work Order Tittle*" Text="{Binding WorkOrder.Tittle}"></controls:ExtendedEntry>
                     <controls:ExtendedEntry Placeholder="Work Order Description" Text="{Binding WorkOrder.Description}"></controls:ExtendedEntry>
@@ -27,6 +29,7 @@
                             <x:String>High</x:String>
                         </Picker.Items>
                     </Picker>
+
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center">
                     <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
@@ -35,8 +38,15 @@
                             <ColumnDefinition Width="2*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Add image" Grid.Row="0" Grid.Column="1"/>
-                        <ImageButton Source="Camara.png" Grid.Row="0" Grid.Column="2"
+                        <Label
+                            Text="Add image"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="Center"/>
+                        <ImageButton Source="Camara.png"
+                                     Grid.Row="0"
+                                     Grid.Column="2"
                              Command="{Binding OpenCamera}"></ImageButton>
                     </Grid>
                 </StackLayout>

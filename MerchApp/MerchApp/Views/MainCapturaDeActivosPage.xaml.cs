@@ -1,22 +1,21 @@
-﻿using MerchApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using MerchApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MerchApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class MainCapturaDeActivosPage : TabbedPage
     {
-        public LoginPage()
+        public MainCapturaDeActivosPage()
         {
             InitializeComponent();
-            BindingContext = new LoginPageViewModel();
+            BindingContext = new MainCapturaDeActivosViewModel();
         }
     }
 }
