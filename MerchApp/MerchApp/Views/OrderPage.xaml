@@ -7,18 +7,28 @@
              x:Class="MerchApp.Views.OrderPage"
              Title="Order">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuItem1" Order="Primary" Text="Edit" Priority="0" Command="{Binding EditWorkOrderCommand}"/>
+        <ToolbarItem Name="MenuItem1"
+                     Order="Primary"
+                     Text="Add"
+                     Priority="0"
+                     Command="{Binding EditWorkOrderCommand}"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
         <!--Estilos de la pagina-->
-        <Style TargetType="ContentPage" ApplyToDerivedTypes="true">
-            <Setter Property="BackgroundImageSource" Value="{Binding ImageOrder}"></Setter>
+        <Style TargetType="ContentPage"
+               ApplyToDerivedTypes="true">
+            <Setter Property="BackgroundImageSource"
+                    Value="{Binding ImageOrder}">
+
+            </Setter>
         </Style>
 
         <Style TargetType="Frame">
-            <Setter Property="BackgroundColor" Value="White" />
-            <Setter Property="BorderColor" Value="Blue" />
+            <Setter Property="BackgroundColor"
+                    Value="White" />
+            <Setter Property="BorderColor"
+                    Value="Blue" />
             <Setter Property="Margin" Value="20" />
             <Setter Property="CornerRadius" Value="10" />
         </Style>

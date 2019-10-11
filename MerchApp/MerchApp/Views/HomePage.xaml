@@ -9,17 +9,52 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
-                <SearchBar x:Name="WorkOrdersSearchBar"
-                           Placeholder="Search work orders"
-                           BackgroundColor="White"/>
+                <SearchBar
+                    x:Name="WorkOrdersSearchBar"
+                    Placeholder="Search work orders"
+                    BackgroundColor="White"/>
             </StackLayout>
             <StackLayout>
-                <ListView ItemsSource="{Binding WorkOrderList}"
+                <ListView
+                    ItemsSource="{Binding WorkOrderList}"
                   x:Name="WorkOrderList"
-                  SelectedItem="{Binding WorkOrderListSelected}">
+                  SelectedItem="{Binding WorkOrderListSelected}"
+                    HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
+                            <ViewCell
+                                Height="70">
+                                <StackLayout
+                                    BackgroundColor="White">
+                                    <Grid Padding="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.RowSpan="2"
+                                               Text="{Binding Modelo}"
+                                               FontAttributes="Bold"                                       
+                                               HeightRequest="60"
+                                               WidthRequest="60" />
+                                        <Label Grid.Column="1"
+                                               Text="{Binding Serial}"
+                                               FontAttributes="Bold" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="1"
+                                               Text="{Binding Cliente}"
+                                               VerticalOptions="End" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="2"
+                                               Text="{Binding Prioridad}"
+                                               VerticalOptions="End" />
+
+                                    </Grid>
+                                </StackLayout>
                                 <ViewCell.ContextActions>
                                     <MenuItem Text="Delete"
                                        Command="{Binding Path=BindingContext.DeleteElementOrder,
@@ -27,9 +62,6 @@
                                        CommandParameter="{Binding .}"
                                        IsDestructive="True"/>
                                 </ViewCell.ContextActions>
-                                <StackLayout BackgroundColor="White">
-                                    <Label Text="{Binding WorkOrderDetails}"/>
-                                </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

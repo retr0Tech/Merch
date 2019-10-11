@@ -11,19 +11,18 @@
         <ContentPage Title="Menu">
             <ContentPage.Content>
                 <StackLayout>
-                    <Grid x:Name="MasterDetailGrid" RowSpacing="0" ColumnSpacing="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1" />
-                        </Grid.ColumnDefinitions>
-                        <Label Text="Juan Perez &#10; JuanPerez@gmail.com" Grid.Row="0" Grid.Column="2"/>
-                        <Image Source="Acc_Icon.png" Grid.Row="0" Grid.Column="1"></Image>
-                        <Button Text="My Profile" Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent"/>
-                        <Image Source="Person_Icon.png" Grid.Row="1" Grid.Column="1"></Image>
-                        <Button Text="My Orders" Grid.Row="2" Grid.Column="2" BackgroundColor="Transparent"/>
-                        <Image Source="MyOrders.png" Grid.Row="2" Grid.Column="1"></Image>
-                        <Button Text="Settings" Grid.Row="3" Grid.Column="2" BackgroundColor="Transparent"/>
-                        <Image Source="Settings.png" Grid.Row="3" Grid.Column="1"></Image>
-                    </Grid>
+                        <Label Text="Elliot Ruiz &#10; elliot-ruizmelo@hotmail.com"
+                               Grid.Row="0"
+                               Grid.Column="2"/>
+                        <Image Source="Acc_Icon.png"
+                               Grid.Row="0"
+                               Grid.Column="1">
+                        </Image>
+                        <Button Text="Salir"
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                BackgroundColor="Transparent"/>
+                        
                 </StackLayout>
             </ContentPage.Content>
         </ContentPage>

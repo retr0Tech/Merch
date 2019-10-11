@@ -9,11 +9,24 @@ using Prism.Commands;
 using Prism.Navigation;
 using Xamarin.Forms;
 using System.Threading;
+using SQLite;
+using Xamarin.Essentials;
+using MerchApp.Models;
+using System.Linq;
 
 namespace MerchApp.ViewModels
 {
     public class LoginPageViewModel : INotifyPropertyChanged
     {
+        #region Class Propeties
+
+        public static List<User> UsersList = new List<User>();
+        public static string currentUser;
+
+        #endregion
+
+        #region Binding Properties
+
         public DelegateCommand LoginCommand { get; set; }
         public DelegateCommand RegisterCommand { get; set; }
         public DelegateCommand ForgotPasswordCommand { get; set; }
@@ -25,25 +38,63 @@ namespace MerchApp.ViewModels
         public string DisplayError { get; set; }
         protected INavigationService _navigationService;
 
-        
+        #endregion
+
         public LoginPageViewModel(INavigationService navigationService)
         {
-            //var x = User.Email;
-            //var y = User.Password;
+
            _navigationService = navigationService;
+            var db = new SQLiteConnection(Preferences.Get("DB_PATH", ""));
+            var querry = "SELECT * FROM User";
+            try
+            {
+                //Ejecutamos el query.
+                var register = db.Query<User>(querry);
+
+                if (register.First().FirstName == null)
+                {
+                    //Dont do anything for now
+                }
+                else
+                {
+                    UsersList = register;
+                }
+
+            }
+            catch
+            {
+
+            }
+
             LoginCommand = new DelegateCommand(async () =>
             {
                 if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(Password))
                 {
-                    Result = "Debe llenar todos los campos";
-                    Thread.Sleep(2000);
-                    Result = string.Empty;
+                    Result = "You Need to fill all the fields";
                 }
                 else
                 {
-                    await Login();
+                    for (int i = 0; i < UsersList.Count; i++)
+                    {
+                        if (UsersList[i].Email == email && UsersList[i].Password == Password)
+                        {
+                            currentUser = email;
+                            db.Close();
+                            email = string.Empty;
+                            Password = string.Empty;
+                            await Login();
+                            return;
+                        }
+                    }
+
+                    Result = "Incorrect email or password";
+                    email = string.Empty;
+                    Password = string.Empty;
+                    return;
+                    
                 }
                 
+
             });
 
             async Task Login()

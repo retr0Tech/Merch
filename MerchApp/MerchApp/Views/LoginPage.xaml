@@ -27,17 +27,17 @@
                        IsPassword ="True"
                        WidthRequest="300">
                 </controls:ExtendedEntry>
-
-                <Button Text="Login"
-                        Command="{Binding LoginCommand}"
-                        Margin="50, 0">
-                </Button>
                 <Label
                     HorizontalOptions="Center"
                     Text="{Binding Result, Mode=TwoWay}"
                     TextColor="red">
 
                 </Label>
+                <Button Text="Login"
+                        Command="{Binding LoginCommand}"
+                        Margin="50, 0">
+                </Button>
+                
                 <Label Text="Register"
                        HorizontalOptions="CenterAndExpand"
                        TextColor="Blue"

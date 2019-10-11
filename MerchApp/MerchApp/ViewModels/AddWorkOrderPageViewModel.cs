@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using MerchApp.Models;
+using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using System;
@@ -14,13 +15,22 @@ namespace MerchApp.ViewModels
     {
         public DelegateCommand SaveWorkOrderCommand { get; set; }
         protected INavigationService _navigationService;
+        public Ticket WorkOrder { get; set; }
         //IPageDialogService _pageDialog;
         public AddWorkOrderPageViewModel(INavigationService navigationService, IPageDialogService pageDialog)
         {
             _navigationService = navigationService;
             SaveWorkOrderCommand = new DelegateCommand(async () =>
             {
-
+                if (string.IsNullOrEmpty(WorkOrder.ticketNum) ||
+                string.IsNullOrEmpty(WorkOrder.Modelo))
+                {
+                    await App.Current.MainPage.DisplayAlert("Error", "You need to fill the required fiels (*)", "ok");
+                }
+                else
+                {
+                    HomePageViewModel.WorkOrderList.Add(WorkOrder);
+                }
                 await SaveWorkOrder();
             });
 

@@ -16,7 +16,7 @@ namespace MerchApp.Views
         public LoginPage()
         {
             InitializeComponent();
-            BindingContext = new LoginPageViewModel();
+            //BindingContext = new LoginPageViewModel();
         }
     }
 }

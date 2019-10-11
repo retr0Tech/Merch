@@ -8,23 +8,51 @@
              x:Class="MerchApp.Views.RegisterPage">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="ic_wrench.png"
+            <StackLayout
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+
+                <Image Source="bateria.png"
                        HeightRequest="100"/>
-                <controls:ExtendedEntry Placeholder="First Name"
-                       WidthRequest="300"></controls:ExtendedEntry>
-                <controls:ExtendedEntry Placeholder="Last Name"
-                       WidthRequest="300"></controls:ExtendedEntry>
-                <controls:ExtendedEntry Placeholder="Email"
-                       Keyboard="Email" WidthRequest="300"></controls:ExtendedEntry>
-                <controls:ExtendedEntry Placeholder="Password"
+                <controls:ExtendedEntry
+                    Text="{Binding FirstNameEntry}"
+                    Placeholder="First Name"
+                       WidthRequest="300">
+                </controls:ExtendedEntry>
+
+                <controls:ExtendedEntry
+                    Text="{Binding LastNameEntry}"
+                    Placeholder="Last Name"
+                       WidthRequest="300">
+                </controls:ExtendedEntry>
+
+                <controls:ExtendedEntry
+                    Text="{Binding EmailEntry}"
+                    Placeholder="Email"
+                       Keyboard="Email" WidthRequest="300">
+                </controls:ExtendedEntry>
+
+                <controls:ExtendedEntry
+                    Text="{Binding PasswordEntry}"
+                    Placeholder="Password"
                        IsPassword ="True"
-                       WidthRequest="300"></controls:ExtendedEntry>
-                <controls:ExtendedEntry Placeholder="Confirm Password"
-                       IsPassword ="True"
-                       WidthRequest="300"></controls:ExtendedEntry>
+                       WidthRequest="300">
+                </controls:ExtendedEntry>
+                <controls:ExtendedEntry
+                    Text="{Binding ConfirmPassword}"
+                    Placeholder="Confirm Password"
+                    IsPassword ="True"
+                    WidthRequest="300">
+                </controls:ExtendedEntry>
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding Result, Mode=TwoWay}"
+                    TextColor="red">
+
+                </Label>
                 <Button Text="Register"
-                        Command="{Binding RegisterCommand}"></Button>
+                    Command="{Binding RegisterCommand}">
+                </Button>
                 <!--<Label Text="{Binding DisplayError, Mode=TwoWay}"
                        HorizontalOptions="CenterAndExpand"
                        TextColor="Red"/>-->
